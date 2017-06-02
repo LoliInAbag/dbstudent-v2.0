@@ -1,0 +1,68 @@
+﻿#price {
+    margin-bottom: 5px;
+}
+
+#cartTable td {
+    vertical-align:initial;
+}
+
+.navbar-right {
+    float: right !important;
+    margin-right: 10px;
+    margin-left: 15px;
+}
+
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 10px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+.pull-right{
+     max-width: 100% !important;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+.btn-group pull-right {
+    margin-right: 10px;
+}
+.form-group label{
+    Background:center ;
+    
+}
+.img {
+margin-right:10px;
+margin-left:1px;
+margin-top:1px;
+float:left;
+}
+col-xs-9 strong {
+    font-weight:900;
+}
+.navbar navbar-inverse {
+background-color:crimson;
+}
+.well a {
+    color:black;
+}
+.price {
+  margin-left:100px  
+
+}
+
+.url a {
+color:brown;
+}

@@ -1,0 +1,36 @@
+﻿@model Domain.Entities.Book
+<div class="well">
+    <div class="row">
+        <div class="col-xs-9">
+
+            <h3>
+                <strong>@Model.Name @Model.Author</strong>
+            </h3>
+        </div>
+
+        <div class="col-xs-3">
+
+        </div>
+        @using (Html.BeginForm("AddToCart", "Cart"))
+        {
+            <div class="pull-right">
+                @Html.HiddenFor(x => x.BookId)
+                @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+
+
+            </div>
+        }
+        <span class="lead"></span><br><br>
+        <a></a><br>
+        <h4>Информация: </h4>
+        <a>Группа: @Model.Description </a><br>
+        <a>Специальность: @Model.Genre </a><br>
+        <a>Форма обучения: @Model.year </a><br>
+        <a>Номер телефона: @Model.picture </a><br>
+        <a>Адрес: @Model.url </a><br>
+        <a>Группа здоровья: @Model.weight </a><br>
+        <a>Инвалидность: @Model.barcode </a><br>
+        <a>Номер диплома: @Model.media </a><br>
+        <a>Пропуски без уважительных причин: @Model.Price</a><br><br>
+    </div>
+</div>

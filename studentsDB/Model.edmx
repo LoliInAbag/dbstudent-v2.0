@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище EFDbContextModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Books">
+          <Key>
+            <PropertyRef Name="BookId" />
+          </Key>
+          <Property Name="BookId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="author" Type="nvarchar(max)" />
+          <Property Name="Отчество" Type="nvarchar(max)" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="Дата_рождения" Type="nvarchar(max)" />
+          <Property Name="Год_поступления" Type="nvarchar(max)" />
+          <Property Name="Год_окончания" Type="nvarchar(max)" />
+          <Property Name="Образование" Type="nvarchar(max)" />
+          <Property Name="Год_окончания_школы" Type="nvarchar(max)" />
+          <Property Name="Номер_школы" Type="nvarchar(max)" />
+          <Property Name="genre" Type="nvarchar(max)" />
+          <Property Name="year" Type="nvarchar(max)" />
+          <Property Name="picture" Type="nvarchar(max)" />
+          <Property Name="Номер_телефона_родителей" Type="nvarchar(max)" />
+          <Property Name="url" Type="nvarchar(max)" />
+          <Property Name="dimensions" Type="nvarchar(max)" />
+          <Property Name="weight" Type="nvarchar(max)" />
+          <Property Name="Гражданство" Type="nvarchar(max)" />
+          <Property Name="Документ_подтверждающий_гражданство" Type="nvarchar(max)" />
+          <Property Name="Многодетная_семья" Type="nvarchar(max)" />
+          <Property Name="barcode" Type="nvarchar(max)" />
+          <Property Name="Срок_действия" Type="nvarchar(max)" />
+          <Property Name="Основание_поощрение" Type="nvarchar(max)" />
+          <Property Name="Основание_взыскания" Type="nvarchar(max)" />
+          <Property Name="media" Type="nvarchar(max)" />
+          <Property Name="От_какого_числа" Type="nvarchar(max)" />
+          <Property Name="Внутриние_перемещения" Type="nvarchar(max)" />
+          <Property Name="Характеристика_выпускника" Type="nvarchar(max)" />
+          <Property Name="Трудоустройство_выпускника" Type="nvarchar(max)" />
+          <Property Name="Продвижение_выпускника" Type="nvarchar(max)" />
+          <Property Name="price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="students">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Фамилия" Type="nvarchar(max)" />
+          <Property Name="Имя" Type="nvarchar(max)" />
+          <Property Name="Отчество" Type="nvarchar(max)" />
+          <Property Name="Группа" Type="nvarchar(max)" />
+          <Property Name="Дата_рождения" Type="nvarchar(max)" />
+          <Property Name="Год_поступления" Type="nvarchar(max)" />
+          <Property Name="Год_окончания" Type="nvarchar(max)" />
+          <Property Name="Образование" Type="nvarchar(max)" />
+          <Property Name="Год_окончания_школы" Type="nvarchar(max)" />
+          <Property Name="Номер_школы" Type="nvarchar(max)" />
+          <Property Name="Специальность" Type="nvarchar(max)" />
+          <Property Name="Форма_обучения" Type="nvarchar(max)" />
+          <Property Name="Номер_телефона_учащегося" Type="nvarchar(max)" />
+          <Property Name="Номер_телефона_родителей" Type="nvarchar(max)" />
+          <Property Name="Адрес" Type="nvarchar(max)" />
+          <Property Name="Иностранный_язык" Type="nvarchar(max)" />
+          <Property Name="Группа_здоровья" Type="nvarchar(max)" />
+          <Property Name="Гражданство" Type="nvarchar(max)" />
+          <Property Name="Документ_подтверждающий_гражданство" Type="nvarchar(max)" />
+          <Property Name="Многодетная_семья" Type="nvarchar(max)" />
+          <Property Name="Инвалидность" Type="nvarchar(max)" />
+          <Property Name="Срок_действия" Type="nvarchar(max)" />
+          <Property Name="Основание_поощрение" Type="nvarchar(max)" />
+          <Property Name="Основание_взыскания" Type="nvarchar(max)" />
+          <Property Name="Номер_диплома" Type="nvarchar(max)" />
+          <Property Name="От_какого_числа" Type="nvarchar(max)" />
+          <Property Name="Внутриние_перемещения" Type="nvarchar(max)" />
+          <Property Name="Характеристика_выпускника" Type="nvarchar(max)" />
+          <Property Name="Трудоустройство_выпускника" Type="nvarchar(max)" />
+          <Property Name="Продвижение_выпускника" Type="nvarchar(max)" />
+          <Property Name="Пропуски_без_уважительных_причин" Type="nvarchar(max)" />
+        </EntityType>
+        <Function Name="addORedit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="mode" Type="nvarchar" Mode="In" />
+          <Parameter Name="BookId" Type="int" Mode="In" />
+          <Parameter Name="name" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="author" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Отчество" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="description" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Дата_рождения" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Год_поступления" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Год_окончания" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Образование" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Год_окончания_школы" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Номер_школы" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="genre" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="year" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="picture" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Номер_телефона_родителей" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="url" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="dimensions" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="weight" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Гражданство" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Документ_подтверждающий_гражданство" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Многодетная_семья" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="barcode" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Срок_действия" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Основание_поощрение" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Основание_взыскания" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="media" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="От_какого_числа" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Внутриние_перемещения" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Характеристика_выпускника" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Трудоустройство_выпускника" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Продвижение_выпускника" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="price" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteProcedure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BookId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ViewOrSearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="lil" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <EntityContainer Name="Хранилище EFDbContextModelContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Books" EntityType="Self.Books" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="students" EntityType="Self.students" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EFDbContextModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Books">
+          <Key>
+            <PropertyRef Name="BookId" />
+          </Key>
+          <Property Name="BookId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="author" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Отчество" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Дата_рождения" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Год_поступления" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Год_окончания" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Образование" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Год_окончания_школы" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Номер_школы" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="genre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="year" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Номер_телефона_родителей" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="dimensions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="weight" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Гражданство" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Документ_подтверждающий_гражданство" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Многодетная_семья" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="barcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Срок_действия" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Основание_поощрение" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Основание_взыскания" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="media" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="От_какого_числа" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Внутриние_перемещения" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Характеристика_выпускника" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Трудоустройство_выпускника" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Продвижение_выпускника" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="students">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Фамилия" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Имя" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Отчество" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Группа" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Дата_рождения" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Год_поступления" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Год_окончания" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Образование" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Год_окончания_школы" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Номер_школы" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Специальность" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Форма_обучения" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Номер_телефона_учащегося" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Номер_телефона_родителей" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Адрес" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Иностранный_язык" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Группа_здоровья" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Гражданство" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Документ_подтверждающий_гражданство" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Многодетная_семья" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Инвалидность" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Срок_действия" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Основание_поощрение" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Основание_взыскания" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Номер_диплома" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="От_какого_числа" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Внутриние_перемещения" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Характеристика_выпускника" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Трудоустройство_выпускника" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Продвижение_выпускника" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Пропуски_без_уважительных_причин" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="EFDbContextEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="Books" EntityType="Self.Books" />
+          <EntitySet Name="students" EntityType="Self.students" />
+          <FunctionImport Name="addORedit">
+            <Parameter Name="mode" Mode="In" Type="String" />
+            <Parameter Name="BookId" Mode="In" Type="Int32" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="author" Mode="In" Type="String" />
+            <Parameter Name="Отчество" Mode="In" Type="String" />
+            <Parameter Name="description" Mode="In" Type="String" />
+            <Parameter Name="Дата_рождения" Mode="In" Type="String" />
+            <Parameter Name="Год_поступления" Mode="In" Type="String" />
+            <Parameter Name="Год_окончания" Mode="In" Type="String" />
+            <Parameter Name="Образование" Mode="In" Type="String" />
+            <Parameter Name="Год_окончания_школы" Mode="In" Type="String" />
+            <Parameter Name="Номер_школы" Mode="In" Type="String" />
+            <Parameter Name="genre" Mode="In" Type="String" />
+            <Parameter Name="year" Mode="In" Type="String" />
+            <Parameter Name="picture" Mode="In" Type="String" />
+            <Parameter Name="Номер_телефона_родителей" Mode="In" Type="String" />
+            <Parameter Name="url" Mode="In" Type="String" />
+            <Parameter Name="dimensions" Mode="In" Type="String" />
+            <Parameter Name="weight" Mode="In" Type="String" />
+            <Parameter Name="Гражданство" Mode="In" Type="String" />
+            <Parameter Name="Документ_подтверждающий_гражданство" Mode="In" Type="String" />
+            <Parameter Name="Многодетная_семья" Mode="In" Type="String" />
+            <Parameter Name="barcode" Mode="In" Type="String" />
+            <Parameter Name="Срок_действия" Mode="In" Type="String" />
+            <Parameter Name="Основание_поощрение" Mode="In" Type="String" />
+            <Parameter Name="Основание_взыскания" Mode="In" Type="String" />
+            <Parameter Name="media" Mode="In" Type="String" />
+            <Parameter Name="От_какого_числа" Mode="In" Type="String" />
+            <Parameter Name="Внутриние_перемещения" Mode="In" Type="String" />
+            <Parameter Name="Характеристика_выпускника" Mode="In" Type="String" />
+            <Parameter Name="Трудоустройство_выпускника" Mode="In" Type="String" />
+            <Parameter Name="Продвижение_выпускника" Mode="In" Type="String" />
+            <Parameter Name="price" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteProcedure">
+            <Parameter Name="BookId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ViewOrSearch" ReturnType="Collection(EFDbContextModel.ViewOrSearch_Result)">
+            <Parameter Name="lil" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="ViewOrSearch_Result">
+          <Property Type="Int32" Name="BookId" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="true" />
+          <Property Type="String" Name="author" Nullable="true" />
+          <Property Type="String" Name="Отчество" Nullable="true" />
+          <Property Type="String" Name="description" Nullable="true" />
+          <Property Type="String" Name="Дата_рождения" Nullable="true" />
+          <Property Type="String" Name="Год_поступления" Nullable="true" />
+          <Property Type="String" Name="Год_окончания" Nullable="true" />
+          <Property Type="String" Name="Образование" Nullable="true" />
+          <Property Type="String" Name="Год_окончания_школы" Nullable="true" />
+          <Property Type="String" Name="Номер_школы" Nullable="true" />
+          <Property Type="String" Name="genre" Nullable="true" />
+          <Property Type="String" Name="year" Nullable="true" />
+          <Property Type="String" Name="picture" Nullable="true" />
+          <Property Type="String" Name="Номер_телефона_родителей" Nullable="true" />
+          <Property Type="String" Name="url" Nullable="true" />
+          <Property Type="String" Name="dimensions" Nullable="true" />
+          <Property Type="String" Name="weight" Nullable="true" />
+          <Property Type="String" Name="Гражданство" Nullable="true" />
+          <Property Type="String" Name="Документ_подтверждающий_гражданство" Nullable="true" />
+          <Property Type="String" Name="Многодетная_семья" Nullable="true" />
+          <Property Type="String" Name="barcode" Nullable="true" />
+          <Property Type="String" Name="Срок_действия" Nullable="true" />
+          <Property Type="String" Name="Основание_поощрение" Nullable="true" />
+          <Property Type="String" Name="Основание_взыскания" Nullable="true" />
+          <Property Type="String" Name="media" Nullable="true" />
+          <Property Type="String" Name="От_какого_числа" Nullable="true" />
+          <Property Type="String" Name="Внутриние_перемещения" Nullable="true" />
+          <Property Type="String" Name="Характеристика_выпускника" Nullable="true" />
+          <Property Type="String" Name="Трудоустройство_выпускника" Nullable="true" />
+          <Property Type="String" Name="Продвижение_выпускника" Nullable="true" />
+          <Property Type="Decimal" Name="price" Nullable="false" Precision="18" Scale="0" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище EFDbContextModelContainer" CdmEntityContainer="EFDbContextEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="EFDbContextModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Books">
+            <EntityTypeMapping TypeName="EFDbContextModel.Books">
+              <MappingFragment StoreEntitySet="Books">
+                <ScalarProperty Name="BookId" ColumnName="BookId" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="Дата_рождения" ColumnName="Дата_рождения" />
+                <ScalarProperty Name="Год_поступления" ColumnName="Год_поступления" />
+                <ScalarProperty Name="Год_окончания" ColumnName="Год_окончания" />
+                <ScalarProperty Name="Образование" ColumnName="Образование" />
+                <ScalarProperty Name="Год_окончания_школы" ColumnName="Год_окончания_школы" />
+                <ScalarProperty Name="Номер_школы" ColumnName="Номер_школы" />
+                <ScalarProperty Name="genre" ColumnName="genre" />
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="picture" ColumnName="picture" />
+                <ScalarProperty Name="Номер_телефона_родителей" ColumnName="Номер_телефона_родителей" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="dimensions" ColumnName="dimensions" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="Гражданство" ColumnName="Гражданство" />
+                <ScalarProperty Name="Документ_подтверждающий_гражданство" ColumnName="Документ_подтверждающий_гражданство" />
+                <ScalarProperty Name="Многодетная_семья" ColumnName="Многодетная_семья" />
+                <ScalarProperty Name="barcode" ColumnName="barcode" />
+                <ScalarProperty Name="Срок_действия" ColumnName="Срок_действия" />
+                <ScalarProperty Name="Основание_поощрение" ColumnName="Основание_поощрение" />
+                <ScalarProperty Name="Основание_взыскания" ColumnName="Основание_взыскания" />
+                <ScalarProperty Name="media" ColumnName="media" />
+                <ScalarProperty Name="От_какого_числа" ColumnName="От_какого_числа" />
+                <ScalarProperty Name="Внутриние_перемещения" ColumnName="Внутриние_перемещения" />
+                <ScalarProperty Name="Характеристика_выпускника" ColumnName="Характеристика_выпускника" />
+                <ScalarProperty Name="Трудоустройство_выпускника" ColumnName="Трудоустройство_выпускника" />
+                <ScalarProperty Name="Продвижение_выпускника" ColumnName="Продвижение_выпускника" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="students">
+            <EntityTypeMapping TypeName="EFDbContextModel.students">
+              <MappingFragment StoreEntitySet="students">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+                <ScalarProperty Name="Группа" ColumnName="Группа" />
+                <ScalarProperty Name="Дата_рождения" ColumnName="Дата_рождения" />
+                <ScalarProperty Name="Год_поступления" ColumnName="Год_поступления" />
+                <ScalarProperty Name="Год_окончания" ColumnName="Год_окончания" />
+                <ScalarProperty Name="Образование" ColumnName="Образование" />
+                <ScalarProperty Name="Год_окончания_школы" ColumnName="Год_окончания_школы" />
+                <ScalarProperty Name="Номер_школы" ColumnName="Номер_школы" />
+                <ScalarProperty Name="Специальность" ColumnName="Специальность" />
+                <ScalarProperty Name="Форма_обучения" ColumnName="Форма_обучения" />
+                <ScalarProperty Name="Номер_телефона_учащегося" ColumnName="Номер_телефона_учащегося" />
+                <ScalarProperty Name="Номер_телефона_родителей" ColumnName="Номер_телефона_родителей" />
+                <ScalarProperty Name="Адрес" ColumnName="Адрес" />
+                <ScalarProperty Name="Иностранный_язык" ColumnName="Иностранный_язык" />
+                <ScalarProperty Name="Группа_здоровья" ColumnName="Группа_здоровья" />
+                <ScalarProperty Name="Гражданство" ColumnName="Гражданство" />
+                <ScalarProperty Name="Документ_подтверждающий_гражданство" ColumnName="Документ_подтверждающий_гражданство" />
+                <ScalarProperty Name="Многодетная_семья" ColumnName="Многодетная_семья" />
+                <ScalarProperty Name="Инвалидность" ColumnName="Инвалидность" />
+                <ScalarProperty Name="Срок_действия" ColumnName="Срок_действия" />
+                <ScalarProperty Name="Основание_поощрение" ColumnName="Основание_поощрение" />
+                <ScalarProperty Name="Основание_взыскания" ColumnName="Основание_взыскания" />
+                <ScalarProperty Name="Номер_диплома" ColumnName="Номер_диплома" />
+                <ScalarProperty Name="От_какого_числа" ColumnName="От_какого_числа" />
+                <ScalarProperty Name="Внутриние_перемещения" ColumnName="Внутриние_перемещения" />
+                <ScalarProperty Name="Характеристика_выпускника" ColumnName="Характеристика_выпускника" />
+                <ScalarProperty Name="Трудоустройство_выпускника" ColumnName="Трудоустройство_выпускника" />
+                <ScalarProperty Name="Продвижение_выпускника" ColumnName="Продвижение_выпускника" />
+                <ScalarProperty Name="Пропуски_без_уважительных_причин" ColumnName="Пропуски_без_уважительных_причин" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="addORedit" FunctionName="Хранилище EFDbContextModel.addORedit" />
+          <FunctionImportMapping FunctionImportName="DeleteProcedure" FunctionName="Хранилище EFDbContextModel.DeleteProcedure" />
+          <FunctionImportMapping FunctionImportName="ViewOrSearch" FunctionName="Хранилище EFDbContextModel.ViewOrSearch">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EFDbContextModel.ViewOrSearch_Result">
+                <ScalarProperty Name="BookId" ColumnName="BookId" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="Дата_рождения" ColumnName="Дата_рождения" />
+                <ScalarProperty Name="Год_поступления" ColumnName="Год_поступления" />
+                <ScalarProperty Name="Год_окончания" ColumnName="Год_окончания" />
+                <ScalarProperty Name="Образование" ColumnName="Образование" />
+                <ScalarProperty Name="Год_окончания_школы" ColumnName="Год_окончания_школы" />
+                <ScalarProperty Name="Номер_школы" ColumnName="Номер_школы" />
+                <ScalarProperty Name="genre" ColumnName="genre" />
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="picture" ColumnName="picture" />
+                <ScalarProperty Name="Номер_телефона_родителей" ColumnName="Номер_телефона_родителей" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="dimensions" ColumnName="dimensions" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="Гражданство" ColumnName="Гражданство" />
+                <ScalarProperty Name="Документ_подтверждающий_гражданство" ColumnName="Документ_подтверждающий_гражданство" />
+                <ScalarProperty Name="Многодетная_семья" ColumnName="Многодетная_семья" />
+                <ScalarProperty Name="barcode" ColumnName="barcode" />
+                <ScalarProperty Name="Срок_действия" ColumnName="Срок_действия" />
+                <ScalarProperty Name="Основание_поощрение" ColumnName="Основание_поощрение" />
+                <ScalarProperty Name="Основание_взыскания" ColumnName="Основание_взыскания" />
+                <ScalarProperty Name="media" ColumnName="media" />
+                <ScalarProperty Name="От_какого_числа" ColumnName="От_какого_числа" />
+                <ScalarProperty Name="Внутриние_перемещения" ColumnName="Внутриние_перемещения" />
+                <ScalarProperty Name="Характеристика_выпускника" ColumnName="Характеристика_выпускника" />
+                <ScalarProperty Name="Трудоустройство_выпускника" ColumnName="Трудоустройство_выпускника" />
+                <ScalarProperty Name="Продвижение_выпускника" ColumnName="Продвижение_выпускника" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

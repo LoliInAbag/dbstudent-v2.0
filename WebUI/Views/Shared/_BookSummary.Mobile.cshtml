@@ -1,0 +1,23 @@
+﻿@model Domain.Entities.Book
+
+<div data-role="collapsible" data-collapsed="false" data-content-theme="c">
+    <h2>@Model.Name</h2>
+    <h3>@Model.Author</h3>
+
+    <div>
+        <div>
+           
+        </div>
+        <div>
+           
+        </div>
+        <div>
+            @using (Html.BeginForm("AddToCart", "Cart"))
+            {
+                @Html.HiddenFor(x => x.BookId)
+                @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+               
+            }
+        </div>
+    </div>
+</div>
