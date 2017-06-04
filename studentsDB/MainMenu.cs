@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace studentsDB
 {
@@ -452,17 +451,35 @@ namespace studentsDB
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
+            Bitmap bmp = new Bitmap(dataGridView1.Size.Width + 10, dataGridView1.Size.Height + 10);
+            dataGridView1.DrawToBitmap(bmp, dataGridView1.Bounds);
             e.Graphics.DrawImage(bmp, 0, 0);
+           /* e.Graphics.DrawString(dataGridView1.Text, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, 150, 125);
+            /*
+             e.Graphics.DrawString(textBox4.Text, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, 150, 125);
+             e.Graphics.DrawString(textBox11.Text, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, 150, 125);
+             e.Graphics.DrawString(textBox12.Text, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, 150, 125);
+             e.Graphics.DrawString(textBox16.Text, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, 150, 125);
+             e.Graphics.DrawString(textBox17.Text, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, 150, 125);
+             e.Graphics.DrawString(textBox25.Text, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, 150, 125);
+             e.Graphics.DrawString(textBox31.Text, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, 150, 125);
+            */
         }
         Bitmap bmp;
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            Graphics g = this.CreateGraphics();
+            printDocument1.Print();/*
+            printDialog1.Document = printDocument1;
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
+           /* Graphics g = this.CreateGraphics();
             bmp = new Bitmap(this.Size.Width, this.Size.Height, g);
             Graphics mg = Graphics.FromImage(bmp);
             mg.CopyFromScreen(this.Location.X, this.Location.Y, 500, 0, this.Size);
-            printPreviewDialog1.ShowDialog();
+            printPreviewDialog1.ShowDialog();*/
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -778,6 +795,162 @@ namespace studentsDB
         private void booksBindingSource1_CurrentChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            Microsoft.Office.Interop.Excel.Application xlApp;
+            Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
+            Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet;
+            object misValue = System.Reflection.Missing.Value;
+
+            xlApp = new Microsoft.Office.Interop.Excel.Application();
+            xlWorkBook = xlApp.Workbooks.Add(misValue);
+            xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            int i = 1;
+            int j = 0;
+
+            xlWorkSheet.get_Range("A1").Value = "Личный номер";
+            xlWorkSheet.get_Range("B1").Value = "Фамилия";
+            xlWorkSheet.get_Range("C1").Value = "Имя";
+            xlWorkSheet.get_Range("D1").Value = "Отчество";
+            xlWorkSheet.get_Range("E1").Value = "Группа";
+            xlWorkSheet.get_Range("F1").Value = "Дата рождения";
+            xlWorkSheet.get_Range("G1").Value = "Год поступления";
+            xlWorkSheet.get_Range("H1").Value = "Год окончания";
+            xlWorkSheet.get_Range("I1").Value = "Год окончания школы";
+            xlWorkSheet.get_Range("J1").Value = "Номер школы";
+            xlWorkSheet.get_Range("K1").Value = "Специальность";
+            xlWorkSheet.get_Range("L1").Value = "Форма обучения";
+            xlWorkSheet.get_Range("M1").Value = "Номер телефона учащегося";
+            xlWorkSheet.get_Range("N1").Value = "Номер телефона родителей";
+            xlWorkSheet.get_Range("O1").Value = "Адрес";
+            xlWorkSheet.get_Range("P1").Value = "Иностранный язык";
+            xlWorkSheet.get_Range("Q1").Value = "Группа здоровья";
+            xlWorkSheet.get_Range("R1").Value = "Гражданство";
+            xlWorkSheet.get_Range("S1").Value = "Документ подтверждающий гражданство";
+            xlWorkSheet.get_Range("T1").Value = "Многодетная семья";
+            xlWorkSheet.get_Range("U1").Value = "Инвалидность";
+            xlWorkSheet.get_Range("V1").Value = "Срок действия";
+            xlWorkSheet.get_Range("W1").Value = "Основание поощрение";
+            xlWorkSheet.get_Range("X1").Value = "Основание взыскания";
+            xlWorkSheet.get_Range("Y1").Value = "Номер диплома";
+            xlWorkSheet.get_Range("Z1").Value = "От какого числа";
+            xlWorkSheet.get_Range("AA1").Value = "Внутриние перемещения";
+            xlWorkSheet.get_Range("AB1").Value = "Характеристика выпускника:";
+            xlWorkSheet.get_Range("AC1").Value = "Трудоустройство выпускника:";
+            xlWorkSheet.get_Range("AD1").Value = "Продвижение выпускника:";
+            xlWorkSheet.get_Range("AE1").Value = "Пропуски без уважительных причин:";
+
+
+
+
+            for (i = 0; i <= dataGridView1.RowCount - 1; i++)
+            {
+                for (j = 0; j <= dataGridView1.ColumnCount - 1; j++)
+                {
+                    DataGridViewCell cell = dataGridView1[j, i];
+
+                    xlWorkSheet.Cells[i + 2, j + 1] = cell.Value;
+                }
+            }
+            DialogResult res = MessageBox.Show("Экспорт завершен. При нажатии Yes будет открыт сгенерированный файл, при нажатии No будет предложено сохранить файл.", "Экспорт в Excel", MessageBoxButtons.YesNoCancel);
+            if (res == DialogResult.Yes)
+            { xlApp.Visible = true; }
+            if (res == DialogResult.No)
+            {
+                string fileName = String.Empty;
+                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+                saveFileDialog1.Filter = "xls files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                saveFileDialog1.FilterIndex = 1;
+                saveFileDialog1.RestoreDirectory = true;
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    fileName = saveFileDialog1.FileName;
+                }
+                else
+                    return;
+                //сохраняем 
+                xlWorkBook.SaveAs(fileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                saveFileDialog1.Dispose();
+            }
+
+            //  xlWorkBook.SaveAs("Экспорт данных.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            xlWorkSheet.Cells.get_Range("A1", "AE1").Font.Bold = true;
+            xlWorkSheet.Columns.ColumnWidth = 20;
+
+            xlWorkBook.Close(true, misValue, misValue);
+            xlApp.Quit();
+
+            releaseObject(xlWorkSheet);
+            releaseObject(xlWorkBook);
+            releaseObject(xlApp);
+        }
+        private void releaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Exception Occured while releasing object " + ex.ToString());
+            }
+            finally
+            {
+                GC.Collect();
+            }
+        }
+        private static void ToCsV(DataGridView dGV, string filename)
+        {
+            IEnumerable<string[]> writeData = GetWriteData(dGV);
+            int[] maxLengths = new int[dGV.ColumnCount - 1];
+            foreach (string[] row in writeData)
+            {
+                for (int i = 0; i < maxLengths.Length; ++i)
+                {
+                    if (row[i] != null && row[i].Length > maxLengths[i])
+                    {
+                        maxLengths[i] = row[i].Length;
+                    }
+                }
+            }
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < maxLengths.Length; ++i)
+            {
+                sb.AppendFormat("{{{0},-{1}}}", i, maxLengths[i]).Append("\t");
+            }
+            string format = sb.AppendFormat("{{{0}}}", maxLengths.Length).ToString();
+
+            using (StreamWriter sw = new StreamWriter(filename, false, Encoding.GetEncoding(1251)))
+            {
+                foreach (string[] row in writeData)
+                {
+                    sw.WriteLine(format, row);
+                }
+            }
+        }
+
+        private static IEnumerable<string[]> GetWriteData(DataGridView dGV)
+        {
+            yield return dGV.Columns.Cast<DataGridViewColumn>().Select(column => Convert.ToString(column.HeaderText)).ToArray();
+            for (int i = 0; i < dGV.RowCount - 1; ++i)
+            {
+                yield return dGV.Rows[i].Cells.Cast<DataGridViewCell>().Select(cell => Convert.ToString(cell.Value)).ToArray();
+            }
+        }
+
+        private void button8_Click_1(object sender, EventArgs e)
+        {
+            SaveFileDialog sdf = new SaveFileDialog();
+            sdf.Filter = @"Word Documents(*.txt)|*.txt";
+            sdf.FileName = "*.txt";
+            if (sdf.ShowDialog() == DialogResult.OK)
+            {
+                ToCsV(dataGridView1, sdf.FileName);
+            }
         }
     }
 }
