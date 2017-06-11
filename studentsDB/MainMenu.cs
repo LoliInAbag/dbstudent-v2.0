@@ -817,30 +817,31 @@ namespace studentsDB
             xlWorkSheet.get_Range("E1").Value = "Группа";
             xlWorkSheet.get_Range("F1").Value = "Дата рождения";
             xlWorkSheet.get_Range("G1").Value = "Год поступления";
-            xlWorkSheet.get_Range("H1").Value = "Год окончания";
-            xlWorkSheet.get_Range("I1").Value = "Год окончания школы";
-            xlWorkSheet.get_Range("J1").Value = "Номер школы";
-            xlWorkSheet.get_Range("K1").Value = "Специальность";
-            xlWorkSheet.get_Range("L1").Value = "Форма обучения";
-            xlWorkSheet.get_Range("M1").Value = "Номер телефона учащегося";
-            xlWorkSheet.get_Range("N1").Value = "Номер телефона родителей";
-            xlWorkSheet.get_Range("O1").Value = "Адрес";
-            xlWorkSheet.get_Range("P1").Value = "Иностранный язык";
-            xlWorkSheet.get_Range("Q1").Value = "Группа здоровья";
-            xlWorkSheet.get_Range("R1").Value = "Гражданство";
-            xlWorkSheet.get_Range("S1").Value = "Документ подтверждающий гражданство";
-            xlWorkSheet.get_Range("T1").Value = "Многодетная семья";
-            xlWorkSheet.get_Range("U1").Value = "Инвалидность";
-            xlWorkSheet.get_Range("V1").Value = "Срок действия";
-            xlWorkSheet.get_Range("W1").Value = "Основание поощрение";
-            xlWorkSheet.get_Range("X1").Value = "Основание взыскания";
-            xlWorkSheet.get_Range("Y1").Value = "Номер диплома";
-            xlWorkSheet.get_Range("Z1").Value = "От какого числа";
-            xlWorkSheet.get_Range("AA1").Value = "Внутриние перемещения";
-            xlWorkSheet.get_Range("AB1").Value = "Характеристика выпускника:";
-            xlWorkSheet.get_Range("AC1").Value = "Трудоустройство выпускника:";
-            xlWorkSheet.get_Range("AD1").Value = "Продвижение выпускника:";
-            xlWorkSheet.get_Range("AE1").Value = "Пропуски без уважительных причин:";
+            xlWorkSheet.get_Range("H1").Value = "Год окончания ";
+            xlWorkSheet.get_Range("I1").Value = "Образование";
+            xlWorkSheet.get_Range("J1").Value = "Год окончания школы";
+            xlWorkSheet.get_Range("K1").Value = "Номер школы";
+            xlWorkSheet.get_Range("L1").Value = "Специальность";
+            xlWorkSheet.get_Range("M1").Value = "Форма обучения";
+            xlWorkSheet.get_Range("N1").Value = "Номер телефона учащегося";
+            xlWorkSheet.get_Range("O1").Value = "Номер телефона родителей";
+            xlWorkSheet.get_Range("P1").Value = "Адрес";
+            xlWorkSheet.get_Range("Q1").Value = "Иностранный язык";
+            xlWorkSheet.get_Range("R1").Value = "Группа здоровья";
+            xlWorkSheet.get_Range("S1").Value = "Гражданство";
+            xlWorkSheet.get_Range("T1").Value = "Документ подтверждающий гражданство";
+            xlWorkSheet.get_Range("U1").Value = "Многодетная семья";
+            xlWorkSheet.get_Range("V1").Value = "Инвалидность";
+            xlWorkSheet.get_Range("W1").Value = "Срок действия";
+            xlWorkSheet.get_Range("X1").Value = "Основание поощрение";
+            xlWorkSheet.get_Range("Y1").Value = "Основание взыскания";
+            xlWorkSheet.get_Range("Z1").Value = "Номер диплома";
+            xlWorkSheet.get_Range("AA1").Value = "От какого числа";
+            xlWorkSheet.get_Range("AB1").Value = "Внутриние перемещения";
+            xlWorkSheet.get_Range("AC1").Value = "Характеристика выпускника:";
+            xlWorkSheet.get_Range("AD1").Value = "Трудоустройство выпускника:";
+            xlWorkSheet.get_Range("AE1").Value = "Продвижение выпускника:";
+            xlWorkSheet.get_Range("AF1").Value = "Пропуски без уважительных причин:";
 
 
 
@@ -876,7 +877,7 @@ namespace studentsDB
             }
 
             //  xlWorkBook.SaveAs("Экспорт данных.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-            xlWorkSheet.Cells.get_Range("A1", "AE1").Font.Bold = true;
+            xlWorkSheet.Cells.get_Range("A1", "AF1").Font.Bold = true;
             xlWorkSheet.Columns.ColumnWidth = 20;
 
             xlWorkBook.Close(true, misValue, misValue);
